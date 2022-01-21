@@ -1,10 +1,11 @@
+import Keyboard from "./keyboard/Keyboard";
 
 function GameContainer(){
     return (
         <div>
             test
             {/* import grid here */}
-            {/* import keys here */}
+            <Keyboard />
         </div>
     );
 };
