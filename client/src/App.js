@@ -1,13 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
-import Typography from '@mui/material/Typography';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Login from "./components/Login";
+import Logout from "./components/Logout";
 
 function App() {
   return (
-    <div className="App">
-      <Typography variant='h1'>test</Typography>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
