@@ -13,9 +13,9 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-// TODO: configure backend
+// TODO: fix space between password and signup
 
-function Signup() {
+function Signup( { setUser } ) {
     const [formData, setFormData] = useState({
         username: "",
         password: "",
@@ -30,27 +30,26 @@ function Signup() {
       };
       function handleSubmit(e) {
         e.preventDefault();
-        console.log(formData)
+
+        const userCreds = { ...formData };
     
-        // const userCreds = { ...formData };
-    
-        // fetch("/users", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify(userCreds),
-        // }).then((res) => {
-        //   if (res.ok) {
-        //     res.json().then((user) => {
-        //       setCurrentUser(user);
-        //     });
-        //   } else {
-        //     res.json().then((errors) => {
-        //       console.error(errors);
-        //     });
-        //   }
-        // });
+        fetch("/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userCreds),
+        }).then((res) => {
+          if (res.ok) {
+            res.json().then((user) => {
+              setUser(user);
+            });
+          } else {
+            res.json().then((errors) => {
+              console.error(errors);
+            });
+          }
+        });
       }
 
   return (
