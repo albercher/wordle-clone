@@ -1,0 +1,55 @@
+#keyboard {
+  margin: 0 8px;
+  user-select: none;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  margin: 0 auto 8px;
+  touch-action: manipulation;
+}
+
+button {
+  font-weight: bold;
+  border: 0;
+  padding: 0;
+  margin: 0 6px 0 0;
+  height: 58px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  background-color: #d4d6da; /* Need to make dynamic */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* add fade animation for button ? */
+
+button:last-of-type {
+    margin: 0;
+}
+
+.half {
+    flex: .5;
+}
+
+.one {
+    flex: 1;
+}
+
+.one-and-a-half {
+    flex: 1.5;
+    font-size: 12px;
+}
+
+/* .two {
+    flex: 2;
+} */

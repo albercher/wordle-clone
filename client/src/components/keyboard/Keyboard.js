@@ -1,5 +1,8 @@
 import Key from "./Key";
 
+import '../../keyboard.css'
+
+
 function Keyboard( { onEnter, onDelete, onChar } ) {
     const onClick = (keyvalue) => {
         // if (keyvalue === 'ENTER') {
@@ -13,48 +16,42 @@ function Keyboard( { onEnter, onDelete, onChar } ) {
       }
 
   return (
-    <div>
-      <div style={{
-          textAlign: "center",
-          marginBottom: '6px'
-      }}>
-        <Key value="Q" onClick={onClick} />
-        <Key value="W" onClick={onClick} />
-        <Key value="E" onClick={onClick} />
-        <Key value="R" onClick={onClick} />
-        <Key value="T" onClick={onClick} />
-        <Key value="Y" onClick={onClick} />
-        <Key value="U" onClick={onClick} />
-        <Key value="I" onClick={onClick} />
-        <Key value="O" onClick={onClick} />
-        <Key value="P" onClick={onClick} />
+    <div id="keyboard">
+      <div className="row">
+        <Key value="q" onClick={onClick} />
+        <Key value="w" onClick={onClick} />
+        <Key value="e" onClick={onClick} />
+        <Key value="r" onClick={onClick} />
+        <Key value="t" onClick={onClick} />
+        <Key value="y" onClick={onClick} />
+        <Key value="u" onClick={onClick} />
+        <Key value="i" onClick={onClick} />
+        <Key value="o" onClick={onClick} />
+        <Key value="p" onClick={onClick} />
       </div>
-      <div style={{
-          textAlign: "center",
-          marginBottom: '6px'
-      }}>
-        <Key value="A" onClick={onClick} />
-        <Key value="S" onClick={onClick} />
-        <Key value="D" onClick={onClick} />
-        <Key value="F" onClick={onClick} />
-        <Key value="G" onClick={onClick} />
-        <Key value="H" onClick={onClick} />
-        <Key value="J" onClick={onClick} />
-        <Key value="K" onClick={onClick} />
-        <Key value="L" onClick={onClick} />
+      <div className="row">
+        <div className="half"></div>
+        <Key value="a" onClick={onClick} />
+        <Key value="s" onClick={onClick} />
+        <Key value="d" onClick={onClick} />
+        <Key value="f" onClick={onClick} />
+        <Key value="g" onClick={onClick} />
+        <Key value="h" onClick={onClick} />
+        <Key value="j" onClick={onClick} />
+        <Key value="k" onClick={onClick} />
+        <Key value="l" onClick={onClick} />
+        <div className="half"></div>
       </div>
-      <div style={{
-          textAlign: "center",
-      }}>
-        <Key value="ENTER" onClick={onClick} />
-        <Key value="Z" onClick={onClick} />
-        <Key value="X" onClick={onClick} />
-        <Key value="C" onClick={onClick} />
-        <Key value="V" onClick={onClick} />
-        <Key value="B" onClick={onClick} />
-        <Key value="N" onClick={onClick} />
-        <Key value="M" onClick={onClick} />
-        <Key value="BACK" onClick={onClick} />
+      <div className="row">
+        <Key value="enter" onClick={onClick} classn={"one-and-a-half"} />
+        <Key value="z" onClick={onClick} />
+        <Key value="x" onClick={onClick} />
+        <Key value="c" onClick={onClick} />
+        <Key value="v" onClick={onClick} />
+        <Key value="b" onClick={onClick} />
+        <Key value="n" onClick={onClick} />
+        <Key value="m" onClick={onClick} />
+        <Key value="back" onClick={onClick} classn={"one-and-a-half"} />
       </div>
     </div>
   );
