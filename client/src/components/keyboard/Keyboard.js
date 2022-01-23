@@ -1,22 +1,40 @@
 import Key from "./Key";
+import { useState } from "react";
+import "../../keyboard.css";
 
-import '../../keyboard.css'
+function Keyboard({ onEnter, onDelete, onChar }) {
+  const onClick = (value) => {
+    if (value === "enter") {
+      onEnter()
+    } else if (value === "delete") {
+      onDelete()
+    } else {
+      onChar(value)
+      // console.log(value)
+    }
+  };
 
-
-function Keyboard( { onEnter, onDelete, onChar } ) {
-    const onClick = (keyvalue) => {
-        // if (keyvalue === 'ENTER') {
-        //   onEnter()
-        // } else if (keyvalue === 'DELETE') {
-        //   onDelete()
-        // } else {
-        //   onChar(keyvalue)
-        // }
-        console.log(keyvalue)
-      }
+  // const [keyStats, setKeyStats] = useState([
+  //   { value: "q", stat: "" },
+  //   { value: "w", stat: "" },
+  //   { value: "e", stat: "" },
+  //   { value: "r", stat: "" },
+  //   { value: "t", stat: "" },
+  //   { value: "y", stat: "" },
+  //   { value: "u", stat: "" },
+  //   { value: "i", stat: "" },
+  //   { value: "o", stat: "" },
+  //   { value: "p", stat: "" },
+  // ]);
 
   return (
     <div id="keyboard">
+      {/* <div className="row">
+        {keyStats.map((x) => (
+          <Key key={x.value} value={x.value} onClick={onClick} />
+        ))}
+      </div> */}
+
       <div className="row">
         <Key value="q" onClick={onClick} />
         <Key value="w" onClick={onClick} />
