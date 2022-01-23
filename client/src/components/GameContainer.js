@@ -1,10 +1,11 @@
 import Keyboard from "./keyboard/Keyboard";
+import Grid from "./grid/Grid"
 
 function GameContainer(){
     return (
         <div>
             test
-            {/* import grid here */}
+            <Grid />
             <Keyboard />
         </div>
     );
