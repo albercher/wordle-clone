@@ -1,15 +1,22 @@
 import Keyboard from "./keyboard/Keyboard";
 import Grid from "./grid/Grid";
+import Alert from "./Alert";
 import { useState } from "react";
+
+
+import '../gamecontainer.css'
+
 
 function GameContainer() {
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [isGameWon, setIsGameWon] = useState(false);
 
-  // alerts
-  const [notEnoughLetters, setNotEnoughLetters] = useState(false);
-  const [wordNotFound, setWordNotFound] = useState(false);
+  // alerts -- condensed to one useState
+//   const [notEnoughLetters, setNotEnoughLetters] = useState(false);
+//   const [wordNotFound, setWordNotFound] = useState(false);
+  const [alert, setAlert] = useState("");
+
   const [gameLost, setGameLost] = useState(false);
 
   const onChar = (value) => {
@@ -26,18 +33,22 @@ function GameContainer() {
     // check if word is correct length, if not render alert
     // TODO: make an alert
     if (!(currentGuess.length === 5)) {
-      setNotEnoughLetters(true);
+    //   setNotEnoughLetters(true);
+      setAlert("Not enough letters")
       return setTimeout(() => {
-        setNotEnoughLetters(false);
+        // setNotEnoughLetters(false);
+        setAlert("");
       }, 2000);
     }
 
     // check if current guess is in word list, if not render alert
     // TODO: make alert, configure word in list logic
     // if (!isWordInWordList(currentGuess)) {
-    //   setWordNotFound(true);
+    // //   setWordNotFound(true);
+    //   setAlert("Word not in our database")
     //   return setTimeout(() => {
-    //     setWordNotFound(false);
+    //     // setWordNotFound(false);
+    //     setAlert("")
     //   }, 2000);
     // }
 
@@ -60,16 +71,19 @@ function GameContainer() {
       if (guesses.length === 5) {
         //   setStats(addStatsForCompletedGame(stats, guesses.length + 1))
         setGameLost(true);
+        setAlert("Game over!"); // need to adjust if we are letting users play more than once a day
         return setTimeout(() => {
           setGameLost(false);
+          setAlert("");
         }, 2000);
       }
     }
   };
 
   return (
-    <div>
+    <div id="game">
       test
+      {alert? <Alert status={alert} /> : null}
       <Grid />
       <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} />
     </div>

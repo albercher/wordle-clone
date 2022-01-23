@@ -1,0 +1,23 @@
+#alert {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    pointer-events: none;
+    width: fit-content;
+    background-color: #212121;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+/* Not centered on mobile ? */
+#game {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    /* display: flex;
+    flex-direction: column; */
+    height: 100%;
+}
+
