@@ -1,6 +1,7 @@
 import Keyboard from "./keyboard/Keyboard";
 import Grid from "./grid/Grid";
 import Alert from "./Alert";
+import Header from "./Header";
 import { useState } from "react";
 
 
@@ -82,7 +83,7 @@ function GameContainer() {
 
   return (
     <div id="game">
-      test
+      <Header />
       {alert? <Alert status={alert} /> : null}
       <Grid />
       <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} />
