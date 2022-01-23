@@ -7,7 +7,7 @@ import Empty from "./Empty";
 
 import '../../grid.css'
 
-const guesses = ["fruit", "robot", "tarot"];
+const guesses = ["drink", "apple", "fruit", "robot", "tarot"];
 const currentGuess = "";
 
 let emptiesArr =  guesses.length < 5 ? Array.from(Array(5 - guesses.length)) : [];
