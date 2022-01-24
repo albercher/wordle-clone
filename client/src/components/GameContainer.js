@@ -3,7 +3,8 @@ import Grid from "./grid/Grid";
 import Alert from "./Alert";
 import Header from "./Header";
 import { useState } from "react";
-
+import { longList } from "../constants/LongList";
+import { shortList } from "../constants/ShortList";
 
 import '../gamecontainer.css'
 
@@ -12,6 +13,8 @@ function GameContainer() {
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [isGameWon, setIsGameWon] = useState(false);
+
+  console.log("check: " + longList.includes("freak"))
 
   // alerts -- condensed to one useState
 //   const [notEnoughLetters, setNotEnoughLetters] = useState(false);
@@ -58,8 +61,18 @@ function GameContainer() {
 
     // add current guess to list of guesses
     if (currentGuess.length === 5 && guesses.length < 6 && !isGameWon) {
-      setGuesses([...guesses, currentGuess]);
-      setCurrentGuess("");
+      if (longList.includes(currentGuess) || shortList.includes(currentGuess)) {
+        setGuesses([...guesses, currentGuess]);
+        setCurrentGuess("");
+      }
+      else {
+        setCurrentGuess("");
+        console.log("ERROR! " + currentGuess + " is not a valid word.")
+        setAlert("Not a valid word")
+        return setTimeout(() => {
+          setAlert("");
+        }, 2000);
+      }
 
       // TODO: config stats
     //   if (winningWord) {

@@ -2313,5 +2313,5 @@ export const shortList = [
   "rower",
   "artsy",
   "rural",
-  "shave",
+  "shave"
 ];

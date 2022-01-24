@@ -1,7 +1,9 @@
 
 import '../../grid.css'
+import { solution } from "../../constants/Solution";
 
-const solution = "REACT";
+console.log("solution: " + solution)
+// const solution = "REACT";
 
 function Cell( { char, i } ) {
 
