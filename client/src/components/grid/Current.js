@@ -4,7 +4,8 @@ import '../../grid.css'
 
 function Current( { currentGuess } ) {
 
-  const g = currentGuess.toUpperCase();
+  // const g = currentGuess.toUpperCase();
+  const g = "     "
 
   return (
     <div className="row">

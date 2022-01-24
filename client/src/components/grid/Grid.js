@@ -7,12 +7,14 @@ import Empty from "./Empty";
 
 import '../../grid.css'
 
-const guesses = ["drink", "apple", "fruit", "robot", "tarot"];
-const currentGuess = "";
+// const guesses = ["drink", "apple", "fruit", "robot", "tarot"];
+// const currentGuess = "";
 
-let emptiesArr =  guesses.length < 5 ? Array.from(Array(5 - guesses.length)) : [];
 
-function Grid() {
+function Grid( { guesses, currentGuess } ) {
+
+  let emptiesArr =  guesses.length < 5 ? Array.from(Array(5 - guesses.length)) : [];
+
 
   return (
     <div className="grid">
