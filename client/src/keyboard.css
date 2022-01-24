@@ -19,12 +19,20 @@ button {
   border-radius: 4px;
   cursor: pointer;
   user-select: none;
-  background-color: #d4d6da; /* Need to make dynamic */
+  background-color: #e0e0e0; /* Need to make dynamic */
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+}
+
+button:hover {
+  background-color: #cecece; /* Need to make dynamic */
+}
+
+button:active {
+  background-color: #929292; /* Need to make dynamic */
 }
 
 button:focus {
