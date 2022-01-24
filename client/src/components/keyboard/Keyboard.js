@@ -6,7 +6,7 @@ function Keyboard({ onEnter, onDelete, onChar }) {
   const onClick = (value) => {
     if (value === "enter") {
       onEnter()
-    } else if (value === "delete") {
+    } else if (value === "back") {
       onDelete()
     } else {
       onChar(value)

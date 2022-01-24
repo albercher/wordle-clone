@@ -10,7 +10,7 @@ import '../gamecontainer.css'
 
 function GameContainer() {
   const [currentGuess, setCurrentGuess] = useState("");
-  const [guesses, setGuesses] = useState(["drink", "apple"]);
+  const [guesses, setGuesses] = useState([]);
   const [isGameWon, setIsGameWon] = useState(false);
 
   // alerts -- condensed to one useState
@@ -85,7 +85,7 @@ function GameContainer() {
     <div id="game">
       <Header />
       {alert? <Alert status={alert} /> : null}
-      <Grid guess={currentGuess} guesses={guesses} />
+      <Grid currentGuess={currentGuess} guesses={guesses} />
       <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} />
     </div>
   );

@@ -4,8 +4,21 @@ import '../../grid.css'
 
 function Current( { currentGuess } ) {
 
-  // const g = currentGuess.toUpperCase();
-  const g = "     "
+  console.log("currentGuess: " + currentGuess)
+
+  // // const g = currentGuess.toUpperCase();
+  // let g = "";
+  // let spaces = "";
+  // let i = currentGuess.length;
+  // // currentGuess.length? i = currentGuess.length : i = 0;
+
+  // for (i; i < 5; i++) {
+  //   spaces = spaces + " "
+  // }
+
+  let g = currentGuess.toUpperCase()
+
+  console.log("g: " + g);
 
   return (
     <div className="row">

@@ -1,7 +1,7 @@
 
 import '../../grid.css'
 
-const solution = "TAROT";
+const solution = "REACT";
 
 function Cell( { char, i } ) {
 
