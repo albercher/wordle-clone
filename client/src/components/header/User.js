@@ -29,7 +29,7 @@ function User({ user, setUser }) {
     });
   };
 
-  console.log(user)
+  // console.log(user)
   return (
     <div id="user">
       <Tooltip title="Account settings">
