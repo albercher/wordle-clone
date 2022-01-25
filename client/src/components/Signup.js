@@ -2,10 +2,7 @@ import { useState } from "react";
 
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-// import FormControlLabel from "@mui/material/FormControlLabel";
-// import Checkbox from "@mui/material/Checkbox";
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -89,18 +86,6 @@ function Signup({ setUser }) {
             onChange={handleChange}
           />
           {/* </Grid> */}
-          {/* <Grid item xs={12}>
-              <TextField
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-                value={formData.email}
-                onChange={handleChange}
-              />
-            </Grid> */}
           {/* <Grid item xs={12}> */}
           <TextField
             required
@@ -114,12 +99,6 @@ function Signup({ setUser }) {
             onChange={handleChange}
           />
           {/* </Grid> */}
-          {/* <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid> */}
           {/* </Grid> */}
           <Button
             type="submit"

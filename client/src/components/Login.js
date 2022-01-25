@@ -2,10 +2,7 @@ import { useState } from "react";
 
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-// import FormControlLabel from '@mui/material/FormControlLabel';
-// import Checkbox from '@mui/material/Checkbox';
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -19,7 +16,6 @@ function Login({ setUser }) {
   let navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    // email: "",
     username: "",
     password: "",
   });
@@ -71,18 +67,6 @@ function Login({ setUser }) {
           Sign in
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
-          {/* <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-            onChange={handleChange}
-            value={formData.email}
-          /> */}
           <TextField
             autoComplete="username"
             name="username"
