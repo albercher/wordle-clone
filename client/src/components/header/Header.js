@@ -1,6 +1,7 @@
 // import "../gamecontainer.css";
 
 import User from "./User";
+import LoginBtn from "./LoginBtn";
 
 function Header() {
 
@@ -9,7 +10,9 @@ function Header() {
     <header>
       {/* <div></div> */}
       <div id="title">wordle</div>
-      <User />
+      {/* if user logged in, show user, else show login button */}
+      {/* <User /> */}
+      <LoginBtn />
     </header>
   );
 }
