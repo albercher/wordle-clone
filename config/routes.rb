@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :scores
   # resources :users
 
   post '/signup', to: "users#create"
