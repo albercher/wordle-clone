@@ -55,12 +55,18 @@ button:last-of-type {
 
 .one_grey {
   flex: 1;
-  background-color: #929292; /* Need to make dynamic */
+  background-color: #929292;
 }
 
 .one_yellow {
   flex: 1;
-  background-color: orange; /* Need to make dynamic */
+  background-color: orange;
+}
+
+.one_green {
+  flex: 1;
+  background-color: rgb(55, 189, 82);
+
 }
 
 .one-and-a-half {
