@@ -25,9 +25,6 @@ export const charStats = function(guesses) {
     }
   }
 
-  console.log("cSolution: ");
-  console.log(solution);
-
   return charStats
 }
 

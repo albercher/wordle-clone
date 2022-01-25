@@ -53,6 +53,16 @@ button:last-of-type {
     flex: 1;
 }
 
+.one_grey {
+  flex: 1;
+  background-color: #929292; /* Need to make dynamic */
+}
+
+.one_yellow {
+  flex: 1;
+  background-color: orange; /* Need to make dynamic */
+}
+
 .one-and-a-half {
     flex: 1.5;
     font-size: 12px;

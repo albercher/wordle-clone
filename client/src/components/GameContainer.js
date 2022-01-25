@@ -125,7 +125,7 @@ function GameContainer() {
       <Header />
       {alert? <Alert status={alert} /> : null}
       <Grid currentGuess={currentGuess} guesses={guesses} />
-      <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} />
+      <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} cs={cs}/>
     </div>
   );
 }
