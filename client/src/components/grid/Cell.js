@@ -5,28 +5,15 @@ import { solution } from "../../constants/Solution";
 console.log("solution: " + solution)
 // const solution = "REACT";
 
-function Cell( { char, i } ) {
+// let sol = solution;
+
+function Cell( { char, i, status } ) {
 
   const c = char.toUpperCase();
-  // console.log(i)
-  // console.log(solution[i])
-  // console.log(char)
 
-  let status = -1;
-  let cName = "";
+  console.log("char, status: " + char + ", " + status)
 
-  if (solution[i] === char) {
-    status = 1;
-    cName = "cell_1";
-  }
-  else if (solution.includes(char)) {
-    status = 0;
-    cName = "cell_0";
-  }
-  else {
-    status = -1;
-    cName = "cell_-1";
-  }
+  let cName = "cell_" + status;
 
   return (
     <div className={cName} id="a0">{c}</div>

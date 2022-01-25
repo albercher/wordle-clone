@@ -22,7 +22,7 @@
   
 }
 
-.cell_1 {
+.cell_2 {
   width: 3.5rem;
   height: 3.5rem;
 
@@ -47,7 +47,7 @@
   
 }
 
-.cell_0 {
+.cell_1 {
   width: 3.5rem;
   height: 3.5rem;
 
@@ -73,7 +73,7 @@
    align-items: center;
 }
 
-.cell_-1 {
+.cell_0 {
   width: 3.5rem;
   height: 3.5rem;
 

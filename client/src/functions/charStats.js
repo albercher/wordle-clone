@@ -39,6 +39,9 @@ export const charStats = function(guesses) {
 
   if (uniqueChars) {  // if uniqueChars exists, i.e. if guess is submitted
     for (let i = 0; i < uniqueChars.length; i++) { // loop thorugh uniqueChars str
+      if (charStats[uniqueChars[i]] == 2) {
+        // skip greens
+      }
       for (let j = 0; j < 5; j++) { // loop through solution chars
         if (uniqueChars[i] === sol[j]) {
           console.log("uniqueChars[i]: " + uniqueChars[i])
