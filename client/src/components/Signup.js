@@ -65,7 +65,7 @@ function Signup({ setUser }) {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 1, bgcolor: "#929292" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -84,6 +84,7 @@ function Signup({ setUser }) {
             autoFocus
             value={formData.username}
             onChange={handleChange}
+            sx={{ pb: 2}}
           />
           {/* </Grid> */}
           {/* <Grid item xs={12}> */}
@@ -97,6 +98,7 @@ function Signup({ setUser }) {
             autoComplete="new-password"
             value={formData.password}
             onChange={handleChange}
+            sx={{ pb: 1 }}
           />
           {/* </Grid> */}
           {/* </Grid> */}
@@ -108,7 +110,7 @@ function Signup({ setUser }) {
           >
             Sign Up
           </Button>
-          <Grid container justifyContent="flex-end">
+          <Grid container justifyContent="flex-end" sx={{ pt: 1 }}>
             <Grid item>
               <Link href="/login" variant="body2">
                 Already have an account? Sign in

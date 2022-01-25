@@ -60,7 +60,7 @@ function Login({ setUser }) {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 1, bgcolor: "#929292" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -94,11 +94,11 @@ function Login({ setUser }) {
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2 }}
+            sx={{ mt: 3, mb: 2, }}
           >
             Sign In
           </Button>
-          <Grid container justifyContent="flex-end">
+          <Grid container justifyContent="flex-end" sx={{ pt: 1 }}>
             <Grid item>
               <Link href="/signup" variant="body2">
                 Don't have an account? Sign Up
