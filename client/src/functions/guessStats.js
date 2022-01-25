@@ -6,12 +6,12 @@ export const guessStats = function(guess) {
 
   let guessStats = {}
 
-  console.log(guess)
+  // console.log(guess)
 
 
   for (let i = 0; i < 5; i++) { // loop through guess chars
     guessStats[i] = 0;
-    console.log(sol)
+    // console.log(sol)
     for (let j = 0; j < 5; j++) { // loop thorugh sol chars
       if (guess[i] === sol[j]) {
         if (i === j) {

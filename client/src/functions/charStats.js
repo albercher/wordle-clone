@@ -17,31 +17,8 @@ export const charStats = function(guesses) {
     console.log("uni: " + uniqueChars);
   }
 
-  // if (uniqueChars) {
-  //   for (let i = 0; i < uniqueChars.length; i++) {
-  //     if (solution.toLowerCase().includes(uniqueChars[i])) {
-  //       console.log("guesses[guesses.length - 1][i]: " + guesses[guesses.length - 1][i])
-  //       console.log("solution[i]: " + solution[i])
-  //       console.log("guesses: ")
-  //       console.log(guesses)
-  //       if (guesses[guesses.length - 1][i] === solution[i].toLowerCase()) {
-  //         charStats[uniqueChars[i]] = 2;
-  //       }
-  //       else {
-  //       charStats[uniqueChars[i]] = 1;
-  //       }
-  //     }
-  //     else {
-  //       charStats[uniqueChars[i]] = 0;
-  //     }
-  //   }
-  // }
-
   if (uniqueChars) {  // if uniqueChars exists, i.e. if guess is submitted
     for (let i = 0; i < uniqueChars.length; i++) { // loop thorugh uniqueChars str
-      if (charStats[uniqueChars[i]] == 2) {
-        // skip greens
-      }
       for (let j = 0; j < 5; j++) { // loop through solution chars
         if (uniqueChars[i] === sol[j]) {
           console.log("uniqueChars[i]: " + uniqueChars[i])

@@ -9,8 +9,8 @@ function Guesses( { guess } ) {
 
   const gS = guessStats(guess);
 
-  console.log("guessStats: ")
-  console.log(guessStats(guess))
+  // console.log("guessStats: ")
+  // console.log(guessStats(guess))
 
 
   return (
