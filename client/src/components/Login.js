@@ -13,9 +13,14 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
+import { useNavigate } from "react-router-dom";
+
 function Login({ setUser }) {
+  let navigate = useNavigate();
+
   const [formData, setFormData] = useState({
-    email: "",
+    // email: "",
+    username: "",
     password: "",
   });
 
@@ -38,6 +43,8 @@ function Login({ setUser }) {
       if (res.ok) {
         res.json().then((user) => {
           setUser(user);
+          // redirect to home on successful signin
+          navigate("/");
         });
       } else {
         res.json().then((errors) => {
@@ -49,7 +56,6 @@ function Login({ setUser }) {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <Box
         sx={{
           marginTop: 8,
@@ -64,8 +70,8 @@ function Login({ setUser }) {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          <TextField
+        <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
+          {/* <TextField
             margin="normal"
             required
             fullWidth
@@ -76,6 +82,17 @@ function Login({ setUser }) {
             autoFocus
             onChange={handleChange}
             value={formData.email}
+          /> */}
+          <TextField
+            autoComplete="username"
+            name="username"
+            required
+            fullWidth
+            id="username"
+            label="Username"
+            autoFocus
+            value={formData.username}
+            onChange={handleChange}
           />
           <TextField
             margin="normal"
@@ -89,10 +106,6 @@ function Login({ setUser }) {
             onChange={handleChange}
             value={formData.password}
           />
-          {/* <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                /> */}
           <Button
             type="submit"
             fullWidth
@@ -101,15 +114,10 @@ function Login({ setUser }) {
           >
             Sign In
           </Button>
-          <Grid container>
-            {/* <Grid item xs>
-                    <Link href="#" variant="body2">
-                      Forgot password?
-                    </Link>
-                  </Grid> */}
+          <Grid container justifyContent="flex-end">
             <Grid item>
               <Link href="/signup" variant="body2">
-                {"Don't have an account? Sign Up"}
+                Don't have an account? Sign Up
               </Link>
             </Grid>
           </Grid>

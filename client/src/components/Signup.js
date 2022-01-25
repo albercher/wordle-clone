@@ -13,48 +13,53 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 
-// TODO: fix space between password and signup
+import { useNavigate } from "react-router-dom";
 
-function Signup( { setUser } ) {
-    const [formData, setFormData] = useState({
-        username: "",
-        password: "",
-        email: "",
-      });
-    
-      const handleChange = (e) => {
-        setFormData({
-          ...formData,
-          [e.target.name]: e.target.value,
+// TODO: fix space between inputs
+
+function Signup({ setUser }) {
+  let navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    // email: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const userCreds = { ...formData };
+
+    fetch("/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userCreds),
+    }).then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setUser(user);
+          // redirect to home on successful signin
+          navigate("/");
         });
-      };
-      function handleSubmit(e) {
-        e.preventDefault();
-
-        const userCreds = { ...formData };
-    
-        fetch("/signup", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(userCreds),
-        }).then((res) => {
-          if (res.ok) {
-            res.json().then((user) => {
-              setUser(user);
-            });
-          } else {
-            res.json().then((errors) => {
-              console.error(errors);
-            });
-          }
+      } else {
+        res.json().then((errors) => {
+          console.error(errors);
         });
       }
+    });
+  }
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <Box
         sx={{
           marginTop: 8,
@@ -70,21 +75,21 @@ function Signup( { setUser } ) {
           Sign up
         </Typography>
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                autoComplete="username"
-                name="username"
-                required
-                fullWidth
-                id="username"
-                label="Username"
-                autoFocus
-                value={formData.username}
-                onChange={handleChange}
-              />
-            </Grid>
-            <Grid item xs={12}>
+          {/* <Grid container spacing={2}>
+            <Grid item xs={12}> */}
+          <TextField
+            autoComplete="username"
+            name="username"
+            required
+            fullWidth
+            id="username"
+            label="Username"
+            autoFocus
+            value={formData.username}
+            onChange={handleChange}
+          />
+          {/* </Grid> */}
+          {/* <Grid item xs={12}>
               <TextField
                 required
                 fullWidth
@@ -95,27 +100,27 @@ function Signup( { setUser } ) {
                 value={formData.email}
                 onChange={handleChange}
               />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="new-password"
-                value={formData.password}
-                onChange={handleChange}
-              />
-            </Grid>
-            {/* <Grid item xs={12}>
+            </Grid> */}
+          {/* <Grid item xs={12}> */}
+          <TextField
+            required
+            fullWidth
+            name="password"
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="new-password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+          {/* </Grid> */}
+          {/* <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I want to receive inspiration, marketing promotions and updates via email."
               />
             </Grid> */}
-          </Grid>
+          {/* </Grid> */}
           <Button
             type="submit"
             fullWidth

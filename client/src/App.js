@@ -15,13 +15,14 @@ function App() {
       }
     });
   }, []);
-
+  
   // if (user) {
   //   return <h2>Welcome, {user.username}!</h2>;
   // } else {
   //   return <Login onLogin={setUser} />;
   // }
   return (
+    // <div>hello, {user.username}</div>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<GameContainer currentUser={user} />} />
