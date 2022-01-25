@@ -8,9 +8,9 @@ console.log("solution: " + solution)
 function Cell( { char, i } ) {
 
   const c = char.toUpperCase();
-  console.log(i)
-  console.log(solution[i])
-  console.log(char)
+  // console.log(i)
+  // console.log(solution[i])
+  // console.log(char)
 
   let status = -1;
   let cName = "";

@@ -5,6 +5,7 @@ import Header from "./Header";
 import { useState } from "react";
 import { longList } from "../constants/LongList";
 import { shortList } from "../constants/ShortList";
+import { charStats } from "../functions/charStats";
 
 import '../gamecontainer.css'
 
@@ -14,7 +15,32 @@ function GameContainer() {
   const [guesses, setGuesses] = useState([]);
   const [isGameWon, setIsGameWon] = useState(false);
 
-  console.log("check: " + longList.includes("freak"))
+  // let charStats = {};
+  // let uniqueChars = "";
+  // if (guesses.length > 1) {
+  //   const uniqueSet = new Set(guesses.join('').split(""));
+  //   uniqueChars = [...uniqueSet].join('');
+  //   console.log("uni: " + uniqueChars);
+  // }
+  // else if (guesses.length === 1) {
+  //   const uniqueSet = new Set(guesses[0].split(""));
+  //   uniqueChars = [...uniqueSet].join('');
+  //   console.log("uni: " + uniqueChars);
+  // }
+
+  // if (uniqueChars) {
+  //   for (let i = 0; i < uniqueChars.length; i++) {
+  //     charStats[uniqueChars[i]] = true;
+  //   }
+  // }
+
+  // console.log("charStats: ");
+  // console.log(charStats);
+
+  const cs = charStats(guesses);
+  console.log("cs: ")
+  console.log(cs)
+
 
   // alerts -- condensed to one useState
 //   const [notEnoughLetters, setNotEnoughLetters] = useState(false);
