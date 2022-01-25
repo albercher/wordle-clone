@@ -1,7 +1,7 @@
 import Keyboard from "./keyboard/Keyboard";
 import Grid from "./grid/Grid";
 import Alert from "./Alert";
-import Header from "./Header";
+import Header from "./header/Header";
 import { useState } from "react";
 import { longList } from "../constants/LongList";
 import { shortList } from "../constants/ShortList";
