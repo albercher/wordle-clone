@@ -3,16 +3,15 @@
 import User from "./User";
 import LoginBtn from "./LoginBtn";
 
-function Header() {
+function Header( { user, setUser } ) {
 
 
   return (
     <header>
-      {/* <div></div> */}
       <div id="title">wordle</div>
-      {/* if user logged in, show user, else show login button */}
+      {user ? <User user={user} /> : <LoginBtn />}
       {/* <User /> */}
-      <LoginBtn />
+      {/* <LoginBtn /> */}
     </header>
   );
 }

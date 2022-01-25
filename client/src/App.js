@@ -19,7 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<GameContainer currentUser={user} />} />
+        <Route path="/" element={<GameContainer currentUser={user} setUser={setUser} />} />
         <Route path="/login" element={<Login setUser={setUser} />} />
         <Route path="/signup" element={<Signup setUser={setUser} />} />
       </Routes>

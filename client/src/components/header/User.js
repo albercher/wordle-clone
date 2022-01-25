@@ -11,7 +11,7 @@ import Logout from "@mui/icons-material/Logout";
 
 import { useState } from "react";
 
-function User() {
+function User({ user, setUser }) {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -19,6 +19,14 @@ function User() {
   };
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    fetch("/logout", { method: "DELETE" }).then((res) => {
+      if (res.ok) {
+        setUser(null);
+      }
+    });
   };
   return (
     <div id="user">
@@ -30,7 +38,7 @@ function User() {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
         >
-          <Avatar>M</Avatar>
+          <Avatar>{user}</Avatar>
         </IconButton>
       </Tooltip>
       <Menu
@@ -68,26 +76,22 @@ function User() {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>
-          <Avatar /> Profile
-        </MenuItem>
-        <MenuItem>
-          <Avatar /> My account
-        </MenuItem>
+        <MenuItem>Wins:</MenuItem>
+        <MenuItem>Total games:</MenuItem>
         <Divider />
-        <MenuItem>
+        {/* <MenuItem>
           <ListItemIcon>
             <PersonAdd fontSize="small" />
           </ListItemIcon>
           Add another account
-        </MenuItem>
-        <MenuItem>
+        </MenuItem> */}
+        {/* <MenuItem>
           <ListItemIcon>
             <Settings fontSize="small" />
           </ListItemIcon>
           Settings
-        </MenuItem>
-        <MenuItem>
+        </MenuItem> */}
+        <MenuItem onClick={handleLogout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>
