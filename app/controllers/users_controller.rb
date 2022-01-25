@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+    # for testing
+    def index
+        render json: User.all
+    end
+
     def create
         user = User.create(user_params)
         if user.valid?

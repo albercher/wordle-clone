@@ -10,7 +10,7 @@ import { charStats } from "../functions/charStats";
 import '../gamecontainer.css'
 
 
-function GameContainer() {
+function GameContainer( { user, setUser } ) {
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [isGameWon, setIsGameWon] = useState(false);
@@ -122,7 +122,7 @@ function GameContainer() {
 
   return (
     <div id="game">
-      <Header />
+      <Header user={user} setUser={setUser} />
       {alert? <Alert status={alert} /> : null}
       <Grid currentGuess={currentGuess} guesses={guesses} />
       <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} cs={cs}/>

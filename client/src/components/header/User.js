@@ -5,8 +5,8 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
-import PersonAdd from "@mui/icons-material/PersonAdd";
-import Settings from "@mui/icons-material/Settings";
+// import PersonAdd from "@mui/icons-material/PersonAdd";
+// import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 
 import { useState } from "react";
@@ -28,6 +28,8 @@ function User({ user, setUser }) {
       }
     });
   };
+
+  console.log(user)
   return (
     <div id="user">
       <Tooltip title="Account settings">
@@ -38,7 +40,7 @@ function User({ user, setUser }) {
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
         >
-          <Avatar>{user}</Avatar>
+          <Avatar>{user.user_initial}</Avatar>
         </IconButton>
       </Tooltip>
       <Menu
@@ -76,8 +78,8 @@ function User({ user, setUser }) {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>Wins:</MenuItem>
-        <MenuItem>Total games:</MenuItem>
+        <MenuItem>Total wins: </MenuItem>
+        <MenuItem>Total games: </MenuItem>
         <Divider />
         {/* <MenuItem>
           <ListItemIcon>

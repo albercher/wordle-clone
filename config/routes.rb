@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :scores
+  resources :scores, only: [:index]
   # resources :users
 
   post '/signup', to: "users#create"
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
 
+  get '/users', to: 'users#index'
 
 
   # Routing logic: fallback requests for React Router.

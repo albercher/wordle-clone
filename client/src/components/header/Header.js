@@ -5,11 +5,10 @@ import LoginBtn from "./LoginBtn";
 
 function Header( { user, setUser } ) {
 
-
   return (
     <header>
       <div id="title">wordle</div>
-      {user ? <User user={user} /> : <LoginBtn />}
+      {user ? <User user={user} setUser={setUser} /> : <LoginBtn setUser={setUser} />}
       {/* <User /> */}
       {/* <LoginBtn /> */}
     </header>
