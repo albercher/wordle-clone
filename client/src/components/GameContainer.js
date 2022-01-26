@@ -88,7 +88,7 @@ function GameContainer({ user, setUser }) {
             })
               .then((response) => response.json())
               .then((data) => {
-                console.log("Success:", data);
+                setUser(data.user);
               })
               .catch((error) => {
                 console.error("Error:", error);
@@ -130,7 +130,7 @@ function GameContainer({ user, setUser }) {
           })
             .then((response) => response.json())
             .then((data) => {
-              console.log("Success:", data);
+              setUser(data.user);
             })
             .catch((error) => {
               console.error("Error:", error);
