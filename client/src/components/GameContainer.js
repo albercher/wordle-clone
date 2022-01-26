@@ -7,13 +7,18 @@ import { longList } from "../constants/LongList";
 import { shortList } from "../constants/ShortList";
 import { charStats } from "../functions/charStats";
 
-import '../gamecontainer.css'
+import { solution } from "../constants/Solution";
 
+import "../gamecontainer.css";
 
-function GameContainer( { user, setUser } ) {
+function GameContainer({ user, setUser }) {
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
   const [isGameWon, setIsGameWon] = useState(false);
+  const [gameLost, setGameLost] = useState(false);
+
+  // alerts -- condensed to one useState
+  const [alert, setAlert] = useState("");
 
   // let charStats = {};
   // let uniqueChars = "";
@@ -38,17 +43,10 @@ function GameContainer( { user, setUser } ) {
   // console.log(charStats);
 
   const cs = charStats(guesses);
-  console.log("cs: ")
-  console.log(cs)
+  console.log("cs: ");
+  console.log(cs);
 
-
-  // alerts -- condensed to one useState
-//   const [notEnoughLetters, setNotEnoughLetters] = useState(false);
-//   const [wordNotFound, setWordNotFound] = useState(false);
-  const [alert, setAlert] = useState("");
-
-  const [gameLost, setGameLost] = useState(false);
-
+  // keyboard functions
   const onChar = (value) => {
     if (currentGuess.length < 5 && guesses.length < 6 && !isGameWon) {
       setCurrentGuess(`${currentGuess}${value}`);
@@ -63,59 +61,81 @@ function GameContainer( { user, setUser } ) {
     // check if word is correct length, if not render alert
     // TODO: make an alert
     if (!(currentGuess.length === 5)) {
-    //   setNotEnoughLetters(true);
-      setAlert("Not enough letters")
+      //   setNotEnoughLetters(true);
+      setAlert("Not enough letters");
       return setTimeout(() => {
         // setNotEnoughLetters(false);
         setAlert("");
       }, 2000);
     }
 
-    // check if current guess is in word list, if not render alert
-    // TODO: make alert, configure word in list logic
-    // if (!isWordInWordList(currentGuess)) {
-    // //   setWordNotFound(true);
-    //   setAlert("Word not in our database")
-    //   return setTimeout(() => {
-    //     // setWordNotFound(false);
-    //     setAlert("")
-    //   }, 2000);
-    // }
-
-    // TODO: congiure winning word logic
-    //   const winningWord = isWinningWord(currentGuess)
-
     // add current guess to list of guesses
     if (currentGuess.length === 5 && guesses.length < 6 && !isGameWon) {
+      // if word is solution
+      if (currentGuess === solution) {
+        setAlert("You won! Play again?");
+        // post request to add game as won to stats if user logged in
+        if (user) {
+          const winData = { user_id: user.id, win: true };
+          fetch("/scores", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(winData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
+      }
+
+      //if word is in word lists
       if (longList.includes(currentGuess) || shortList.includes(currentGuess)) {
+        // add it to our list of guesses and reset the current guess
         setGuesses([...guesses, currentGuess]);
         setCurrentGuess("");
       }
+      // if not in word list
       else {
+        // reset current guess and send alert
         setCurrentGuess("");
-        console.log("ERROR! " + currentGuess + " is not a valid word.")
-        setAlert("Not a valid word")
+        console.log("ERROR! " + currentGuess + " is not a valid word.");
+        setAlert("Not a valid word");
         return setTimeout(() => {
           setAlert("");
         }, 2000);
       }
 
-      // TODO: config stats
-    //   if (winningWord) {
-    //     setStats(addStatsForCompletedGame(stats, guesses.length))
-    //     return setIsGameWon(true);
-    //   }
-
       // check if out of guesses, if so render loss
-      // TODO: make alert, config stats
       if (guesses.length === 5) {
         //   setStats(addStatsForCompletedGame(stats, guesses.length + 1))
-        setGameLost(true);
         setAlert("Game over!"); // need to adjust if we are letting users play more than once a day
-        return setTimeout(() => {
-          setGameLost(false);
-          setAlert("");
-        }, 2000);
+        // return setTimeout(() => {
+        //   setAlert("");
+        // }, 2000);
+
+        if (user) {
+          const lossData = { user_id: user.id, win: false };
+          fetch("/scores", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(lossData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        }
       }
     }
   };
@@ -123,9 +143,9 @@ function GameContainer( { user, setUser } ) {
   return (
     <div id="game">
       <Header user={user} setUser={setUser} />
-      {alert? <Alert status={alert} /> : null}
+      {alert ? <Alert status={alert} /> : null}
       <Grid currentGuess={currentGuess} guesses={guesses} />
-      <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} cs={cs}/>
+      <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} cs={cs} />
     </div>
   );
 }
