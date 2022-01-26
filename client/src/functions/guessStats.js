@@ -8,23 +8,50 @@ export const guessStats = function(guess) {
 
   // console.log(guess)
 
-
-  for (let i = 0; i < 5; i++) { // loop through guess chars
-    guessStats[i] = 0;
-    // console.log(sol)
-    for (let j = 0; j < 5; j++) { // loop thorugh sol chars
-      if (guess[i] === sol[j]) {
-        if (i === j) {
+  for (let i = 0; i < 5; i++) {
+    if (!sol.includes(guess[i])) {
+      console.log("no: " + guess[i])
+      guessStats[i] = 0;
+    }
+    else {
+      for (let j = 0; j < 5; j++) {
+        if (i === j && guess[i] === sol[j]) {
           guessStats[i] = 2;
-          sol = sol.replace(guess[i], "_")
+          sol = sol.replace(guess[i], "_");
+          console.log("correct: " + guess[i]);
+          console.log("sol: " + sol)
         }
-        else {
+        else if (guessStats[i] !== 2) {
           guessStats[i] = 1;
-          sol = sol.replace(guess[i], "_")
+          console.log("present: " + guess[i]);
+          console.log("sol: " + sol)
         }
       }
     }
   }
+
+  // old bugged method below...
+
+  // for (let i = 0; i < 5; i++) { // loop through guess chars
+  //   guessStats[i] = 0;
+  //   // console.log(sol)
+  //   for (let j = 0; j < 5; j++) { // loop thorugh sol chars
+  //     if (guess[i] === sol[j]) {
+  //       if (i === j) {
+  //         guessStats[i] = 2;
+  //         sol = sol.replace(guess[i], "_")
+  //       }
+  //       else {
+  //         guessStats[i] = 1;
+  //         sol = sol.replace(guess[i], "_")
+  //       }
+  //     }
+  //     // console.log(sol)
+  //   }
+  // }
+
+
+  
 
 
   return guessStats
