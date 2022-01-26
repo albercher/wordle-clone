@@ -20,32 +20,9 @@ function GameContainer({ user, setUser }) {
   // alerts -- condensed to one useState
   const [alert, setAlert] = useState("");
 
-  // let charStats = {};
-  // let uniqueChars = "";
-  // if (guesses.length > 1) {
-  //   const uniqueSet = new Set(guesses.join('').split(""));
-  //   uniqueChars = [...uniqueSet].join('');
-  //   console.log("uni: " + uniqueChars);
-  // }
-  // else if (guesses.length === 1) {
-  //   const uniqueSet = new Set(guesses[0].split(""));
-  //   uniqueChars = [...uniqueSet].join('');
-  //   console.log("uni: " + uniqueChars);
-  // }
-
-  // if (uniqueChars) {
-  //   for (let i = 0; i < uniqueChars.length; i++) {
-  //     charStats[uniqueChars[i]] = true;
-  //   }
-  // }
-
-  // console.log("charStats: ");
-  // console.log(charStats);
-
+  // charStats for keyboard coloring
   const cs = charStats(guesses);
-  console.log("cs: ");
-  console.log(cs);
-
+ 
   // keyboard functions
   const onChar = (value) => {
     if (currentGuess.length < 5 && guesses.length < 6 && !isGameWon) {
