@@ -10,22 +10,23 @@ import { charStats } from "../functions/charStats";
 import { solution } from "../constants/Solution";
 
 import "../gamecontainer.css";
+import PlayAgain from "./PlayAgain";
 
 function GameContainer({ user, setUser }) {
   const [currentGuess, setCurrentGuess] = useState("");
   const [guesses, setGuesses] = useState([]);
-  const [isGameWon, setIsGameWon] = useState(false);
-  const [gameLost, setGameLost] = useState(false);
+  const [gameWon, setGameWon] = useState(false);
+  const [gameLoss, setGameLoss] = useState(false);
 
   // alerts -- condensed to one useState
   const [alert, setAlert] = useState("");
 
   // charStats for keyboard coloring
   const cs = charStats(guesses);
- 
+
   // keyboard functions
   const onChar = (value) => {
-    if (currentGuess.length < 5 && guesses.length < 6 && !isGameWon) {
+    if (currentGuess.length < 5 && guesses.length < 6 && !gameWon) {
       setCurrentGuess(`${currentGuess}${value}`);
     }
   };
@@ -36,7 +37,6 @@ function GameContainer({ user, setUser }) {
 
   const onEnter = () => {
     // check if word is correct length, if not render alert
-    // TODO: make an alert
     if (!(currentGuess.length === 5)) {
       //   setNotEnoughLetters(true);
       setAlert("Not enough letters");
@@ -47,12 +47,12 @@ function GameContainer({ user, setUser }) {
     }
 
     // add current guess to list of guesses
-    if (currentGuess.length === 5 && guesses.length < 6 && !isGameWon) {
+    if (currentGuess.length === 5 && guesses.length < 6 && !gameWon) {
       //if word is in word lists
       if (longList.includes(currentGuess) || shortList.includes(currentGuess)) {
         // if word is solution
         if (currentGuess === solution.toLowerCase()) {
-          setAlert("You won! Play again?");
+          setGameWon(true);
           // post request to add game as won to stats if user logged in
           if (user) {
             const winData = { user_id: user.id, win: true };
@@ -90,11 +90,7 @@ function GameContainer({ user, setUser }) {
 
       // check if out of guesses, if so render loss
       if (guesses.length === 6) {
-        //   setStats(addStatsForCompletedGame(stats, guesses.length + 1))
-        setAlert("Game over!"); // need to adjust if we are letting users play more than once a day
-        // return setTimeout(() => {
-        //   setAlert("");
-        // }, 2000);
+        setGameLoss(true);
 
         if (user) {
           const lossData = { user_id: user.id, win: false };
@@ -117,11 +113,26 @@ function GameContainer({ user, setUser }) {
     }
   };
 
+  // replay game
+  function handleReplay() {
+    setGameWon(false);
+    setGameLoss(false);
+
+    // TODO: needs to fetch new word
+    setGuesses([]);
+  }
+
   return (
     <div id="game">
       <Header user={user} setUser={setUser} />
       {alert ? <Alert status={alert} /> : null}
-      <Grid currentGuess={currentGuess} guesses={guesses} />
+      {gameWon || gameLoss ? (
+        <PlayAgain handleReplay={handleReplay} />
+      ) : null}
+      <Grid
+        currentGuess={currentGuess}
+        guesses={guesses}
+      />
       <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} cs={cs} />
     </div>
   );

@@ -11,7 +11,6 @@
     border-radius: 5px;
 }
 
-/* Not centered on mobile ? */
 #game {
     width: 100%;
     max-width: 500px;
@@ -41,4 +40,9 @@ header {
     left: 0;
     right: 0; */
     pointer-events: none;
+}
+
+#play {
+    margin: 0 auto;
+    padding: 0 20px;
 }
