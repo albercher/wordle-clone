@@ -37,7 +37,7 @@ function GameContainer({ user, setUser }) {
 
   const onEnter = () => {
     // check if word is correct length, if not render alert
-    if (!(currentGuess.length === 5)) {
+    if (!(currentGuess.length === 5) && !gameWon && !gameLoss) {
       //   setNotEnoughLetters(true);
       setAlert("Not enough letters");
       return setTimeout(() => {
