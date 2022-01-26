@@ -47,7 +47,7 @@ function GameContainer({ user, setUser }) {
     }
 
     // add current guess to list of guesses
-    if (currentGuess.length === 5 && guesses.length < 6 && !gameWon) {
+    if (currentGuess.length === 5 && guesses.length < 6 && !gameWon && !gameLoss) {
       //if word is in word lists
       if (longList.includes(currentGuess) || shortList.includes(currentGuess)) {
         // if word is solution
@@ -76,6 +76,7 @@ function GameContainer({ user, setUser }) {
         // add it to our list of guesses and reset the current guess
         setGuesses([...guesses, currentGuess]);
         setCurrentGuess("");
+        checkIfLoss();
       }
       // if not in word list
       else {
@@ -87,38 +88,40 @@ function GameContainer({ user, setUser }) {
           setAlert("");
         }, 2000);
       }
-
-      // check if out of guesses, if so render loss
-      if (guesses.length === 6) {
-        setGameLoss(true);
-
-        if (user) {
-          const lossData = { user_id: user.id, win: false };
-          fetch("/scores", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(lossData),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              setUser(data.user);
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-        }
-      }
     }
   };
+
+  function checkIfLoss() {
+    // check if out of guesses, if so render loss
+    if (!(guesses.length < 5)) {
+      setGameLoss(true);
+
+      if (user) {
+        const lossData = { user_id: user.id, win: false };
+        fetch("/scores", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(lossData),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            setUser(data.user);
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    }
+  }
 
   // replay game
   function handleReplay() {
     setGameWon(false);
     setGameLoss(false);
 
-    // TODO: needs to fetch new word
+    // TODO: needs to get new word
     setGuesses([]);
   }
 
@@ -126,13 +129,8 @@ function GameContainer({ user, setUser }) {
     <div id="game">
       <Header user={user} setUser={setUser} />
       {alert ? <Alert status={alert} /> : null}
-      {gameWon || gameLoss ? (
-        <PlayAgain handleReplay={handleReplay} />
-      ) : null}
-      <Grid
-        currentGuess={currentGuess}
-        guesses={guesses}
-      />
+      {gameWon || gameLoss ? <PlayAgain handleReplay={handleReplay} /> : null}
+      <Grid currentGuess={currentGuess} guesses={guesses} />
       <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} cs={cs} />
     </div>
   );
