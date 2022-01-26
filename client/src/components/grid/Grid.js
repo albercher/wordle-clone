@@ -15,7 +15,7 @@ function Grid( { guesses, currentGuess } ) {
         <Guesses key={i} guess={guess}/>
       ))
       }
-      <Current currentGuess={currentGuess}/>
+      {guesses.length < 6 ? <Current currentGuess={currentGuess} /> : console.log("fin")}
       {emptiesArr.map((e, i) => (
         <Empty key={i} char=""/>
       ))}
