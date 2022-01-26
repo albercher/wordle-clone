@@ -89,7 +89,7 @@ function GameContainer({ user, setUser }) {
       }
 
       // check if out of guesses, if so render loss
-      if (guesses.length === 5) {
+      if (guesses.length === 6) {
         //   setStats(addStatsForCompletedGame(stats, guesses.length + 1))
         setAlert("Game over!"); // need to adjust if we are letting users play more than once a day
         // return setTimeout(() => {
