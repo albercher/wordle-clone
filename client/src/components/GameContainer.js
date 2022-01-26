@@ -71,31 +71,31 @@ function GameContainer({ user, setUser }) {
 
     // add current guess to list of guesses
     if (currentGuess.length === 5 && guesses.length < 6 && !isGameWon) {
-      // if word is solution
-      if (currentGuess === solution) {
-        setAlert("You won! Play again?");
-        // post request to add game as won to stats if user logged in
-        if (user) {
-          const winData = { user_id: user.id, win: true };
-          fetch("/scores", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(winData),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              console.log("Success:", data);
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-            });
-        }
-      }
-
       //if word is in word lists
       if (longList.includes(currentGuess) || shortList.includes(currentGuess)) {
+        // if word is solution
+        if (currentGuess === solution.toLowerCase()) {
+          setAlert("You won! Play again?");
+          // post request to add game as won to stats if user logged in
+          if (user) {
+            const winData = { user_id: user.id, win: true };
+            fetch("/scores", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(winData),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log("Success:", data);
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+              });
+          }
+        }
+
         // add it to our list of guesses and reset the current guess
         setGuesses([...guesses, currentGuess]);
         setCurrentGuess("");
