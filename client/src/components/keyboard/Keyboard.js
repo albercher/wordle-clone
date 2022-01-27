@@ -4,9 +4,9 @@ import "../../keyboard.css";
 
 function Keyboard({ onEnter, onDelete, onChar , cs}) {
   const onClick = (value) => {
-    if (value === "enter") {
+    if (value === "Enter") {
       onEnter()
-    } else if (value === "back") {
+    } else if (value === "Delete") {
       onDelete()
     } else {
       onChar(value)
@@ -61,7 +61,7 @@ function Keyboard({ onEnter, onDelete, onChar , cs}) {
         <div className="half"></div>
       </div>
       <div className="row">
-        <Key value="enter" onClick={onClick} classn={"one-and-a-half"} />
+        <Key value="Enter" onClick={onClick} classn={"one-and-a-half"} />
         <Key value="z" onClick={onClick} cs={cs} />
         <Key value="x" onClick={onClick} cs={cs} />
         <Key value="c" onClick={onClick} cs={cs} />
@@ -69,7 +69,7 @@ function Keyboard({ onEnter, onDelete, onChar , cs}) {
         <Key value="b" onClick={onClick} cs={cs} />
         <Key value="n" onClick={onClick} cs={cs} />
         <Key value="m" onClick={onClick} cs={cs} />
-        <Key value="back" onClick={onClick} classn={"one-and-a-half"} />
+        <Key value="Delete" onClick={onClick} classn={"one-and-a-half"} />
       </div>
     </div>
   );

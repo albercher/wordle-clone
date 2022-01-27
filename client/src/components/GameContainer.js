@@ -135,7 +135,7 @@ function GameContainer({ user, setUser }) {
     <div id="game">
       <Header user={user} setUser={setUser} />
       {alert ? <Alert status={alert} /> : null}
-      {gameWon || gameLoss ? <PlayAgain handleReplay={handleReplay} /> : null}
+      {gameWon || gameLoss ? <PlayAgain handleReplay={handleReplay} gameWon={gameWon}/> : null}
       <Grid currentGuess={currentGuess} guesses={guesses} solution={solution} />
       <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} cs={cs} />
     </div>

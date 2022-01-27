@@ -11,7 +11,7 @@ function Current( { currentGuess } ) {
   // console.log("g: " + g);
 
   return (
-    <div className="row">
+    <div className="grid_row">
       <div className="cell" id="a0">{g[0]}</div>
       <div className="cell" id="a1">{g[1]}</div>
       <div className="cell" id="a2">{g[2]}</div>

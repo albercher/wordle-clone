@@ -16,7 +16,7 @@ function Guesses( { guess, solution } ) {
   // console.log(guessStats(guess))
 
   return (
-    <div className="row">
+    <div className="grid_row">
       {gArr.map((char, i) => (
         <Cell key={i} i={i} char={char} status={gS[i]}/>
       ))}

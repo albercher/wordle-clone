@@ -11,6 +11,19 @@
     border-radius: 5px;
 }
 
+#alert_2 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  /* pointer-events: none; */
+  width: fit-content;
+  background-color: #212121;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+}
+
 #game {
     width: 100%;
     max-width: 500px;
@@ -28,6 +41,7 @@ header {
     border-bottom: 1px solid #d3d6da;
     /* height: 60px; */
     padding: 0 5px;
+    /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 #title {
