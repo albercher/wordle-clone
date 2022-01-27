@@ -37,11 +37,11 @@
   <p align="center">
     A clone of the popular game Wordle, with an added login system.
     <br />
-    <a href="https://github.com/albercher/wordle-clone"><strong>Explore the docs »</strong></a>
+    <!-- <a href="https://github.com/albercher/wordle-clone"><strong>Explore the docs »</strong></a>
+    <br /> -->
     <br />
-    <br />
-    <a href="https://github.com/albercher/wordle-clone">View Demo</a>
-    ·
+    <!-- <a href="https://github.com/albercher/wordle-clone">View Demo</a>
+    · -->
     <a href="https://github.com/albercher/wordle-clone/issues">Report Bug</a>
     ·
     <a href="https://github.com/albercher/wordle-clone/issues">Request Feature</a>
@@ -67,10 +67,10 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <!-- <li><a href="#usage">Usage</a></li> -->
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <!-- <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li> -->
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
@@ -81,9 +81,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `albercher`, `wordle-clone`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description`
+*insert about here*
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -100,31 +100,36 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* [Ruby](https://www.ruby-lang.org/en/documentation/installation/)
+* [Node.Js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+
+1. Clone the repo
    ```sh
    git clone https://github.com/albercher/wordle-clone.git
    ```
+2. Install gems & create rails db
+   ```sh
+   bundle install
+   rails db:create
+   ```
 3. Install NPM packages
    ```sh
-   npm install
+   npm install --prefix client
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Run the backend on localhost:3000
+   ```sh
+   rails s
+   ```
+5. Run the frontend
+   ```sh
+   npm start --prefix client
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -132,13 +137,13 @@ This is an example of how to list things you need to use the software and how to
 
 
 <!-- USAGE EXAMPLES -->
-## Usage
+<!-- ## Usage
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">back to top</a>)</p> -->
 
 
 
@@ -155,8 +160,8 @@ See the [open issues](https://github.com/albercher/wordle-clone/issues) for a fu
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-<!-- CONTRIBUTING -->
+<!-- 
+CONTRIBUTING
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -174,13 +179,13 @@ Don't forget to give the project a star! Thanks again!
 
 
 
-<!-- LICENSE -->
+LICENSE
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
+ -->
 
 
 <!-- CONTACT -->
@@ -206,9 +211,7 @@ abbeybercher@gmail.com
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* [Wordle](https://www.powerlanguage.co.uk/wordle/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
