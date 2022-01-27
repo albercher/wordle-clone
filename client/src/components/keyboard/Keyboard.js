@@ -14,8 +14,29 @@ function Keyboard({ onEnter, onDelete, onChar , cs}) {
     }
   };
 
+  function isLetter(char) {
+    const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+    return (letters.includes(char) || letters.includes(char.toUpperCase()))
+  }
+
+  function onKeyDown(event) {
+    console.log(event.key)
+    if (isLetter(event.key)) {
+      onChar(event.key);
+    }
+    else if (event.key === "Enter") {
+      onEnter();
+    }
+    else if (event.key === "Backspace") {
+      onDelete();
+    }
+  }
+
+
+
+
   return (
-    <div id="keyboard">
+    <div id="keyboard" onKeyDown={onKeyDown}>
       <div className="row">
         <Key value="q" onClick={onClick} cs={cs} />
         <Key value="w" onClick={onClick} cs={cs} />
