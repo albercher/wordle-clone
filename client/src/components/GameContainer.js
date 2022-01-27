@@ -18,7 +18,7 @@ function GameContainer({ user, setUser }) {
   const [guesses, setGuesses] = useState([]);
   const [gameWon, setGameWon] = useState(false);
   const [gameLoss, setGameLoss] = useState(false);
-  const [solution, setSolution] = useState(getSolution());
+  const [solution, setSolution] = useState("dusty");
 
   // alerts -- condensed to one useState
   const [alert, setAlert] = useState("");
