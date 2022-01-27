@@ -191,11 +191,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Janek Grochulski\
+Jan Grochulski\
 [Portfolio]()\
-[LinkedIn]()\
-[GitHub]()\
-@gmail.com
+[LinkedIn](https://www.linkedin.com/in/grochulski/)\
+[GitHub](https://github.com/jgrochulski/)\
+janek.grochulski@gmail.com
 
 Abbey Bercher\
 [Portfolio](https://abbeybercher.com/)\
