@@ -1,6 +1,8 @@
-import { solution } from "../constants/Solution";
 
-export const guessStats = function(guess) {
+export const guessStats = function(guess, solution) {
+
+  // console.log("@ guessStats.js - solution: " + solution);
+
 
   let sol = solution.toLowerCase();
 

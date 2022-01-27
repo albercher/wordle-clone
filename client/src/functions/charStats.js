@@ -1,11 +1,12 @@
-// import { solution } from "../constants/Solution";
 import { guessStats } from "../functions/guessStats";
 
-export const charStats = function(guesses) {
+export const charStats = function(guesses, solution) {
 
   let charStats = {};
   let uniqueChars = "";
-  // let sol = solution.toLowerCase();
+
+  // console.log("@ charStats.js - solution: " + solution);
+
 
   if (guesses.length > 1) {
     const uniqueSet = new Set(guesses.join('').split(""));
@@ -21,8 +22,8 @@ export const charStats = function(guesses) {
       charStats[uniqueChars[i]] = 0;
       for (let j = 0; j < (guesses.length); j++) { // loop thru guesses
         for (let k = 0; k < 5; k++) { // loop thru letters in guess
-          if (guessStats(guesses[j])[k] > charStats[guesses[j][k]])
-          charStats[guesses[j][k]] = guessStats(guesses[j])[k];
+          if (guessStats(guesses[j], solution)[k] > charStats[guesses[j][k]])
+          charStats[guesses[j][k]] = guessStats(guesses[j], solution)[k];
         }
       }
     }

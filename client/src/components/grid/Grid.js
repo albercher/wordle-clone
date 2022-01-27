@@ -5,14 +5,16 @@ import Empty from "./Empty";
 
 import '../../grid.css'
 
-function Grid( { guesses, currentGuess } ) {
+function Grid( { guesses, currentGuess, solution } ) {
 
   let emptiesArr =  guesses.length < 5 ? Array.from(Array(5 - guesses.length)) : [];
+
+  console.log("@ Grid.js - solution: " + solution);
 
   return (
     <div className="grid">
       {guesses.map((guess, i) => (
-        <Guesses key={i} guess={guess}/>
+        <Guesses key={i} guess={guess} solution={solution} />
       ))
       }
       {guesses.length < 6 ? <Current currentGuess={currentGuess} /> : console.log("fin")}

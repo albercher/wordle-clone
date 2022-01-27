@@ -7,7 +7,8 @@ import { longList } from "../constants/LongList";
 import { shortList } from "../constants/ShortList";
 import { charStats } from "../functions/charStats";
 
-import { solution } from "../constants/Solution";
+import { getSolution } from "../functions/getSolution";
+
 
 import "../gamecontainer.css";
 import PlayAgain from "./PlayAgain";
@@ -17,12 +18,15 @@ function GameContainer({ user, setUser }) {
   const [guesses, setGuesses] = useState([]);
   const [gameWon, setGameWon] = useState(false);
   const [gameLoss, setGameLoss] = useState(false);
+  const [solution, setSolution] = useState(getSolution());
 
   // alerts -- condensed to one useState
   const [alert, setAlert] = useState("");
 
   // charStats for keyboard coloring
-  const cs = charStats(guesses);
+  const cs = charStats(guesses, solution);
+
+  // console.log("@ GameContainer.js - solution: " + solution);
 
   // keyboard functions
   const onChar = (value) => {
@@ -122,6 +126,8 @@ function GameContainer({ user, setUser }) {
     setGameLoss(false);
 
     // TODO: needs to get new word
+    setSolution(getSolution());
+
     setGuesses([]);
   }
 
@@ -130,7 +136,7 @@ function GameContainer({ user, setUser }) {
       <Header user={user} setUser={setUser} />
       {alert ? <Alert status={alert} /> : null}
       {gameWon || gameLoss ? <PlayAgain handleReplay={handleReplay} /> : null}
-      <Grid currentGuess={currentGuess} guesses={guesses} />
+      <Grid currentGuess={currentGuess} guesses={guesses} solution={solution} />
       <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} cs={cs} />
     </div>
   );

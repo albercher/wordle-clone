@@ -1,9 +1,5 @@
 
 import '../../grid.css'
-import { solution } from "../../constants/Solution";
-
-console.log("solution: " + solution)
-
 
 function Cell( { char, i, status } ) {
 
