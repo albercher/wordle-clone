@@ -18,10 +18,16 @@ export const guessStats = function(guess, solution) {
         guessStats[i] = 2;
         sol = sol.replace(guess[i], "_");
       }
-      else {
-        guessStats[i] = 1;
-        sol = sol.replace(guess[i], "_");
-      }
+    }
+  }
+
+  for (let i = 0; i < 5; i++) {
+    if (sol.includes(guess[i]) && guessStats[i] !== 2) {
+      guessStats[i] = 1;
+      sol = sol.replace(guess[i], "_");
+    }
+    else if (guessStats[i] != 2) {
+      guessStats[i] = 0;
     }
   }
 
