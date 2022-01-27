@@ -3,14 +3,24 @@
 import User from "./User";
 import LoginBtn from "./LoginBtn";
 
-function Header( { user, setUser } ) {
+import IconButton from "@mui/material/IconButton";
+import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 
+function Header({ user, setUser, handleShowHowTo }) {
   return (
     <header>
+                <HelpOutlineRoundedIcon id="open" onClick={handleShowHowTo} sx={{ zIndex: 1000 }} />
+
+        {/* <IconButton sx={{ zIndex: 1000 }} onClick={console.log("clicked")}>
+          <HelpOutlineRoundedIcon />
+        </IconButton> */}
+
       <div id="title">wordle</div>
-      {user ? <User user={user} setUser={setUser} /> : <LoginBtn setUser={setUser} />}
-      {/* <User /> */}
-      {/* <LoginBtn /> */}
+      {user ? (
+        <User user={user} setUser={setUser} />
+      ) : (
+        <LoginBtn setUser={setUser} />
+      )}
     </header>
   );
 }

@@ -12,6 +12,7 @@ import { getSolution } from "../functions/getSolution";
 
 import "../gamecontainer.css";
 import PlayAgain from "./PlayAgain";
+import HowToPlay from "./header/HowToPlay"
 
 function GameContainer({ user, setUser }) {
   const [currentGuess, setCurrentGuess] = useState("");
@@ -19,6 +20,7 @@ function GameContainer({ user, setUser }) {
   const [gameWon, setGameWon] = useState(false);
   const [gameLoss, setGameLoss] = useState(false);
   const [solution, setSolution] = useState(getSolution());
+  const [showHowTo, setShowHowTo] = useState(false);
 
   // alerts -- condensed to one useState
   const [alert, setAlert] = useState("");
@@ -131,9 +133,14 @@ function GameContainer({ user, setUser }) {
     setGuesses([]);
   }
 
+  function handleShowHowTo(){
+    setShowHowTo(!showHowTo)
+  }
+
   return (
     <div id="game">
-      <Header user={user} setUser={setUser} />
+      {showHowTo ? <HowToPlay handleShowHowTo={handleShowHowTo} /> : null}
+      <Header user={user} setUser={setUser} handleShowHowTo={handleShowHowTo} />
       {alert ? <Alert status={alert} /> : null}
       {gameWon || gameLoss ? <PlayAgain handleReplay={handleReplay} gameWon={gameWon}/> : null}
       <Grid currentGuess={currentGuess} guesses={guesses} solution={solution} />
