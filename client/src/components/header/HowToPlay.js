@@ -1,6 +1,6 @@
 function HowToPlay({ handleShowHowTo }) {
   return (
-    <div class="overlay" id="how-to-play">
+    <div className="overlay" id="how-to-play">
       <div id="header-cont">
         <h2 id="header">How to play</h2>
         <div id="close" onClick={handleShowHowTo}>
