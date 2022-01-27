@@ -78,7 +78,7 @@ function User({ user, setUser }) {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>Total wins: {user.results_count.true}</MenuItem>
+        <MenuItem>Total wins: {user.results_count.true || 0}</MenuItem>
         <MenuItem>Total games: {user.game_count}</MenuItem>
         <Divider />
         {/* <MenuItem>
