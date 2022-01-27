@@ -26,7 +26,7 @@ export const guessStats = function(guess, solution) {
       guessStats[i] = 1;
       sol = sol.replace(guess[i], "_");
     }
-    else if (guessStats[i] != 2) {
+    else if (guessStats[i] !== 2) {
       guessStats[i] = 0;
     }
   }

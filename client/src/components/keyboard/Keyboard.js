@@ -1,5 +1,5 @@
 import Key from "./Key";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../keyboard.css";
 
 function Keyboard({ onEnter, onDelete, onChar , cs}) {
@@ -10,33 +10,31 @@ function Keyboard({ onEnter, onDelete, onChar , cs}) {
       onDelete()
     } else {
       onChar(value)
-      // console.log(value)
     }
   };
 
-  function isLetter(char) {
-    const letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-    return (letters.includes(char) || letters.includes(char.toUpperCase()))
-  }
-
-  function onKeyDown(event) {
-    console.log(event.key)
-    if (isLetter(event.key)) {
-      onChar(event.key);
+  useEffect(() => {
+    function listener(e) {
+      if (e.key === "Enter") {
+        onEnter();
+      } else if (e.key === "Backspace") {
+        onDelete();
+      } else {
+        const key = e.key.toLowerCase()
+        if (key.length === 1 && key >= "a" && key <= "z") {
+          onChar(key);
+        }
+      }
     }
-    else if (event.key === "Enter") {
-      onEnter();
+    window.addEventListener("keyup", listener)
+    return () => {
+      window.removeEventListener("keyup", listener)
     }
-    else if (event.key === "Backspace") {
-      onDelete();
-    }
-  }
-
-
+  }, [onEnter, onDelete, onChar]);
 
 
   return (
-    <div id="keyboard" onKeyDown={onKeyDown}>
+    <div id="keyboard">
       <div className="row">
         <Key value="q" onClick={onClick} cs={cs} />
         <Key value="w" onClick={onClick} cs={cs} />
