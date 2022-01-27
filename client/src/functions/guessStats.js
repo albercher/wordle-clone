@@ -4,7 +4,7 @@ export const guessStats = function(guess, solution) {
   // console.log("@ guessStats.js - solution: " + solution);
 
 
-  let sol = solution.toLowerCase();
+  let sol = solution;
 
   let guessStats = {}
 

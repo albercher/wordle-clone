@@ -55,7 +55,7 @@ function GameContainer({ user, setUser }) {
       //if word is in word lists
       if (longList.includes(currentGuess) || shortList.includes(currentGuess)) {
         // if word is solution
-        if (currentGuess === solution.toLowerCase()) {
+        if (currentGuess === solution) {
           setGameWon(true);
           // post request to add game as won to stats if user logged in
           if (user) {

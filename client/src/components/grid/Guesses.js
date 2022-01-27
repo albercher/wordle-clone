@@ -5,7 +5,7 @@ import '../../grid.css'
 
 function Guesses( { guess, solution } ) {
 
-  const gArr = guess.toUpperCase().split("");
+  const gArr = guess.split("");
 
   // console.log("@ Guesses.js - solution: " + solution);
 

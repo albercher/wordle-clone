@@ -6,7 +6,7 @@ function Current( { currentGuess } ) {
 
   // console.log("currentGuess: " + currentGuess)
 
-  let g = currentGuess.toUpperCase()
+  let g = currentGuess
 
   // console.log("g: " + g);
 

@@ -3,7 +3,7 @@ import '../../grid.css'
 
 function Cell( { char, i, status } ) {
 
-  const c = char.toUpperCase();
+  const c = char;
 
   // console.log("char, status: " + char + ", " + status)
 
