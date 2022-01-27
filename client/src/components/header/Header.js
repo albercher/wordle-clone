@@ -9,12 +9,11 @@ import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 function Header({ user, setUser, handleShowHowTo }) {
   return (
     <header>
-                <HelpOutlineRoundedIcon id="open" onClick={handleShowHowTo} sx={{ zIndex: 1000 }} />
-
-        {/* <IconButton sx={{ zIndex: 1000 }} onClick={console.log("clicked")}>
-          <HelpOutlineRoundedIcon />
-        </IconButton> */}
-
+      <HelpOutlineRoundedIcon
+        id="open"
+        onClick={handleShowHowTo}
+        sx={{ zIndex: 1000 }}
+      />
       <div id="title">wordle</div>
       {user ? (
         <User user={user} setUser={setUser} />
