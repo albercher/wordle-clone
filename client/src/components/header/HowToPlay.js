@@ -4,7 +4,7 @@ function HowToPlay({ handleShowHowTo }) {
       <div id="header-cont">
         <h2 id="header">How to play</h2>
         <div id="close" onClick={handleShowHowTo}>
-          X
+          ✕
         </div>
       </div>
       <section id="instructions">

@@ -18,6 +18,7 @@
   transform: translate(-50%, 0);
   /* pointer-events: none; */
   width: fit-content;
+  height: fit-content;
   background-color: #212121;
   color: white;
   padding: 15px;
@@ -117,4 +118,9 @@ p.how_to_margin {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 20px;
+}
+
+p.regular_case {
+  text-transform: none;
+  font-size: 15px;
 }
