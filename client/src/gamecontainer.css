@@ -111,3 +111,10 @@ p.how_to {
   color: rgb(82, 82, 82);
   text-align: center;
 }
+
+p.how_to_margin {
+  color: rgb(82, 82, 82);
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

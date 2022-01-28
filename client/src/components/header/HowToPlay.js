@@ -15,7 +15,7 @@ function HowToPlay({ handleShowHowTo }) {
           Each guess must be a valid 5 letter word. Hit the enter button to
           submit.
         </p>
-        <p className={"how_to"}>
+        <p className={"how_to_margin"}>
           After each guess, the color of the tiles will change to show how close
           your guess was to the word.
         </p>
@@ -26,7 +26,7 @@ function HowToPlay({ handleShowHowTo }) {
           <div className="cell" id="a3">{"U"}</div>
           <div className="cell" id="a4">{"T"}</div>
         </div>
-        <p className={"how_to"}>
+        <p className={"how_to_margin"}>
         The letter A is in the word and in the correct spot.
         </p>
         <div className="grid_row">
@@ -36,7 +36,7 @@ function HowToPlay({ handleShowHowTo }) {
           <div className="cell" id="a3">{"U"}</div>
           <div className="cell" id="a4">{"T"}</div>
         </div>
-        <p className={"how_to"}>
+        <p className={"how_to_margin"}>
         The letter O is in the word but in the wrong spot.
         </p>
         <div className="grid_row">
@@ -46,7 +46,7 @@ function HowToPlay({ handleShowHowTo }) {
           <div className="cell_0" id="a3">{"U"}</div>
           <div className="cell" id="a4">{"T"}</div>
         </div>
-        <p className={"how_to"}>
+        <p className={"how_to_margin"}>
         The letter U is not in word in any spot.
         </p>
       </section>
