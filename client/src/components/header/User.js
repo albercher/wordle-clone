@@ -35,7 +35,7 @@ function User({ user, setUser }) {
   const numGames = user.game_count;
   // console.log("numGames: " + numGames)
 
-  const winRatio = (Math.round(numWins / numGames * 1000)) / 10;
+  const winRatio = (Math.round(numWins / numGames * 1000)) / 10 || 0;
   // console.log("winRatio: " + winRatio)
 
 

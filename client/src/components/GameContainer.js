@@ -91,7 +91,7 @@ function GameContainer({ user, setUser }) {
       else {
         // reset current guess and send alert
         setCurrentGuess("");
-        console.log("ERROR! " + currentGuess + " is not a valid word.");
+        // console.log("ERROR! " + currentGuess + " is not a valid word.");
         setAlert("Not a valid word");
         return setTimeout(() => {
           setAlert("");
@@ -102,7 +102,7 @@ function GameContainer({ user, setUser }) {
 
   function checkIfLoss() {
     // check if out of guesses, if so render loss
-    if (!(guesses.length < 5)) {
+    if (!(guesses.length < 5) && currentGuess !== solution) {
       setGameLoss(true);
 
       if (user) {
