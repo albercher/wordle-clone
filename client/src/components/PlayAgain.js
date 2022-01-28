@@ -10,12 +10,12 @@ function PlayAgain( { handleReplay, gameWon } ){
             <p className="regular_case">
               {gameWon? "You solved the Wordle!" : "Better luck next time."}
             </p>
-            <p className="regular_case">
+            <div>
+              <ReplayIcon id={"replay"}/>
+            </div>
+            <p className="regular_case no_margin">
               Play again?
             </p>
-            <div>
-              <ReplayIcon />
-            </div>
           </div>
         </button>
     )

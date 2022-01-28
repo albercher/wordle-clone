@@ -3,7 +3,7 @@
 import User from "./User";
 import LoginBtn from "./LoginBtn";
 
-import IconButton from "@mui/material/IconButton";
+// import IconButton from "@mui/material/IconButton";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
 
 function Header({ user, setUser, handleShowHowTo }) {
@@ -15,6 +15,7 @@ function Header({ user, setUser, handleShowHowTo }) {
         sx={{ zIndex: 1000 }}
       />
       <div id="title">wordle</div>
+
       {user ? (
         <User user={user} setUser={setUser} />
       ) : (

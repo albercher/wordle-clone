@@ -1,5 +1,5 @@
 import Key from "./Key";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "../../keyboard.css";
 
 function Keyboard({ onEnter, onDelete, onChar , cs}) {

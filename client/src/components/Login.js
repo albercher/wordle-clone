@@ -68,7 +68,7 @@ function Login({ setUser }) {
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
           <TextField
-            autoComplete="username"
+            autoComplete="off"
             name="username"
             required
             fullWidth
@@ -86,7 +86,7 @@ function Login({ setUser }) {
             label="Password"
             type="password"
             id="password"
-            autoComplete="current-password"
+            autoComplete="off"
             onChange={handleChange}
             value={formData.password}
           />

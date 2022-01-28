@@ -2,6 +2,8 @@ import Keyboard from "./keyboard/Keyboard";
 import Grid from "./grid/Grid";
 import Alert from "./Alert";
 import Header from "./header/Header";
+import AboutButton from "./AboutButton";
+import About from "./About";
 import { useState } from "react";
 import { longList } from "../constants/LongList";
 import { shortList } from "../constants/ShortList";
@@ -21,6 +23,7 @@ function GameContainer({ user, setUser }) {
   const [gameLoss, setGameLoss] = useState(false);
   const [solution, setSolution] = useState(getSolution());
   const [showHowTo, setShowHowTo] = useState(false);
+  const [showAbout, setShowAbout] = useState(false);
 
   // alerts -- condensed to one useState
   const [alert, setAlert] = useState("");
@@ -137,14 +140,20 @@ function GameContainer({ user, setUser }) {
     setShowHowTo(!showHowTo)
   }
 
+  function handleShowAbout() {
+    setShowAbout(!showAbout)
+  }
+
   return (
     <div id="game">
       {showHowTo ? <HowToPlay handleShowHowTo={handleShowHowTo} /> : null}
       <Header user={user} setUser={setUser} handleShowHowTo={handleShowHowTo} />
       {alert ? <Alert status={alert} /> : null}
+      {showAbout ? <About /> : null}
       {gameWon || gameLoss ? <PlayAgain handleReplay={handleReplay} gameWon={gameWon}/> : null}
       <Grid currentGuess={currentGuess} guesses={guesses} solution={solution} />
       <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} cs={cs} />
+      <AboutButton handleShowAbout={handleShowAbout} showAbout={showAbout}/>
     </div>
   );
 }

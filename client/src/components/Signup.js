@@ -75,7 +75,7 @@ function Signup({ setUser }) {
           {/* <Grid container spacing={2}>
             <Grid item xs={12}> */}
           <TextField
-            autoComplete="username"
+            autoComplete="off"
             name="username"
             required
             fullWidth
@@ -95,7 +95,7 @@ function Signup({ setUser }) {
             label="Password"
             type="password"
             id="password"
-            autoComplete="new-password"
+            autoComplete="off"
             value={formData.password}
             onChange={handleChange}
             sx={{ pb: 1 }}
