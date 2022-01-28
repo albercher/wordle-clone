@@ -29,6 +29,17 @@ function User({ user, setUser }) {
     });
   };
 
+  const numWins = user.results_count.true ? user.results_count.true : 0;
+  // console.log("numwins: " + numWins)
+
+  const numGames = user.game_count;
+  // console.log("numGames: " + numGames)
+
+  const winRatio = (Math.round(numWins / numGames * 1000)) / 10;
+  // console.log("winRatio: " + winRatio)
+
+
+
   // console.log(user)
   return (
     <div id="user">
@@ -78,8 +89,10 @@ function User({ user, setUser }) {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>Total wins: {user.results_count.true || 0}</MenuItem>
-        <MenuItem>Total games: {user.game_count}</MenuItem>
+        <MenuItem>Total wins: {numWins}</MenuItem>
+        <MenuItem>Games played: {numGames}</MenuItem>
+        <MenuItem>Win ratio: {winRatio}%</MenuItem>
+
         <Divider />
         {/* <MenuItem>
           <ListItemIcon>

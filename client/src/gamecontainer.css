@@ -106,3 +106,8 @@ header {
     color: #929292;
     cursor: pointer;
 }
+
+p.how_to {
+  color: rgb(82, 82, 82);
+  text-align: center;
+}
