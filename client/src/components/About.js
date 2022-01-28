@@ -6,7 +6,7 @@ function About() {
         <p className="about-title" id="top-title">Developed by:</p>
           <div className="dev-profs-container">
             <div className="dev-prof">
-              <img alt="prof-img" src="https://avatars.githubusercontent.com/u/91351665?v=4" className="dev-prof-img"/>
+              <img alt="prof-img" src="/jan.jpeg" className="dev-prof-img"/>
               <p className="dev-prof-name">
                 Jan<br/>
                 Grochulski
@@ -26,7 +26,7 @@ function About() {
             </div>
             {/* split */}
             <div className="dev-prof">
-              <img alt="prof-img" src="https://avatars.githubusercontent.com/u/77179350?v=4" className="dev-prof-img"/>
+              <img alt="prof-img" src="/abbey.jpeg" className="dev-prof-img"/>
               <p className="dev-prof-name">
                 Abbey<br/>
                 Bercher
