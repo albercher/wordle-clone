@@ -25,6 +25,7 @@ button {
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  color: black;
 }
 
 button:hover {
