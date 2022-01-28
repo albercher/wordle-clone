@@ -9,7 +9,7 @@ function Grid( { guesses, currentGuess, solution } ) {
 
   let emptiesArr =  guesses.length < 5 ? Array.from(Array(5 - guesses.length)) : [];
 
-  console.log("@ Grid.js - solution: " + solution);
+  // console.log("@ Grid.js - solution: " + solution);
 
   return (
     <div className="grid">
@@ -17,7 +17,7 @@ function Grid( { guesses, currentGuess, solution } ) {
         <Guesses key={i} guess={guess} solution={solution} />
       ))
       }
-      {guesses.length < 6 ? <Current currentGuess={currentGuess} /> : console.log("fin")}
+      {guesses.length < 6 ? <Current currentGuess={currentGuess} /> : null}
       {emptiesArr.map((e, i) => (
         <Empty key={i} char=""/>
       ))}
