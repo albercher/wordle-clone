@@ -144,13 +144,15 @@ function GameContainer({ user, setUser }) {
     setShowAbout(!showAbout)
   }
 
+  const whew = guesses.length > 5 ? true : false;
+
   return (
     <div id="game">
       {showHowTo ? <HowToPlay handleShowHowTo={handleShowHowTo} /> : null}
       <Header user={user} setUser={setUser} handleShowHowTo={handleShowHowTo} />
       {alert ? <Alert status={alert} /> : null}
       {showAbout ? <About /> : null}
-      {gameWon || gameLoss ? <PlayAgain handleReplay={handleReplay} gameWon={gameWon}/> : null}
+      {gameWon || gameLoss ? <PlayAgain handleReplay={handleReplay} gameWon={gameWon} whew={whew}/> : null}
       <Grid currentGuess={currentGuess} guesses={guesses} solution={solution} />
       <Keyboard onEnter={onEnter} onDelete={onDelete} onChar={onChar} cs={cs} />
       <AboutButton handleShowAbout={handleShowAbout} showAbout={showAbout}/>

@@ -1,6 +1,6 @@
 #alert {
     position: absolute;
-    top: 10%;
+    top: 175px;
     left: 50%;
     transform: translate(-50%, 0);
     pointer-events: none;
@@ -13,7 +13,7 @@
 
 #about-popup {
   position: absolute;
-  top: 10%;
+  top: 71px;
   left: 50%;
   transform: translate(-50%, 0);
   /* pointer-events: none; */
@@ -23,11 +23,12 @@
   color: rgb(24, 24, 24);
   padding: 15px;
   border-radius: 5px;
+  /* box-shadow: 0 0 2px 0px rgb(185, 185, 185); */
 }
 
 #alert_2 {
   position: absolute;
-  top: 10%;
+  top: 167px;
   left: 50%;
   transform: translate(-50%, 0);
   /* pointer-events: none; */
@@ -202,7 +203,6 @@ p.no_margin {
   position: relative;
   height: fit-content;
   width: 100px;
-  background-color: #f6f5fa;
   border-radius: 5px;
   align-items: center;
   display: inline-block;
