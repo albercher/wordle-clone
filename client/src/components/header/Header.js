@@ -14,7 +14,7 @@ function Header({ user, setUser, handleShowHowTo }) {
         onClick={handleShowHowTo}
         sx={{ zIndex: 1000 }}
       />
-      <div id="title">wordle</div>
+      <div id="title">wordle ∞</div>
 
       {user ? (
         <User user={user} setUser={setUser} />
