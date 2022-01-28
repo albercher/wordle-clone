@@ -9,7 +9,7 @@ function Grid( { guesses, currentGuess, solution } ) {
 
   let emptiesArr =  guesses.length < 5 ? Array.from(Array(5 - guesses.length)) : [];
 
-  console.log("@ Grid.js - solution: " + solution);
+  // console.log("@ Grid.js - solution: " + solution);
 
   return (
     <div className="grid">
