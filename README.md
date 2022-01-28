@@ -192,7 +192,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Jan Grochulski\
-[Portfolio]()\
+<!-- [Portfolio]()\ -->
 [LinkedIn](https://www.linkedin.com/in/grochulski/)\
 [GitHub](https://github.com/jgrochulski/)\
 janek.grochulski@gmail.com
