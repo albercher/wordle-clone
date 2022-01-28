@@ -24,6 +24,7 @@
   padding: 15px;
   border-radius: 5px;
   /* box-shadow: 0 0 2px 0px rgb(185, 185, 185); */
+  z-index: 1000;
 }
 
 #alert_2 {
