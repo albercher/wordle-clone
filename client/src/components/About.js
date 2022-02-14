@@ -45,7 +45,7 @@ function About() {
               </div>
             </div>
           </div>
-        <p className="about-title">Check our our repo:</p>
+        <p className="about-title">Check out our repo:</p>
           <div className="repo-container">
             <img alt="github-icon" src="./github_icon.png" className="repo-icon"/>
             <a className="repo-link" href="https://github.com/albercher/wordle-clone" target="_blank" rel="noopener noreferrer">
