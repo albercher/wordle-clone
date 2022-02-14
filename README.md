@@ -21,7 +21,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
+<!-- [![MIT License][license-shield]][license-url] -->
 
 
 
@@ -83,7 +83,7 @@
 
 <!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
 
-*insert about here*
+A clone of the popular game Wordle, enhanced with infinite words and a log in system.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -150,10 +150,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] User Stats
+
 
 See the [open issues](https://github.com/albercher/wordle-clone/issues) for a full list of proposed features (and known issues).
 
@@ -192,7 +190,6 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 ## Contact
 
 Jan Grochulski\
-<!-- [Portfolio]()\ -->
 [LinkedIn](https://www.linkedin.com/in/grochulski/)\
 [GitHub](https://github.com/jgrochulski/)\
 janek.grochulski@gmail.com
@@ -211,7 +208,7 @@ abbeybercher@gmail.com
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Wordle](https://www.powerlanguage.co.uk/wordle/)
+* [Wordle](https://www.nytimes.com/games/wordle/index.html)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
